@@ -53,6 +53,8 @@ class QuizViewController: UIViewController {
         
         //選択肢のボタンにそれぞれ選択肢のテキストをセット
         choiceButtons1.setTitle(quizArray[0][1] as? String, for: .normal)
+        let image = UIImage(named: "resu")
+        choiceButtons1.setBackgroundImage(image, for: .normal) // 背景に
         choiceButtons2.setTitle(quizArray[0][2] as? String, for: .normal)
         choiceButtons3.setTitle(quizArray[0][3] as? String, for: .normal)
     }
