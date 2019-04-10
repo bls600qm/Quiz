@@ -29,12 +29,23 @@ class QuizViewController: UIViewController {
         var tmpArray = [[Any]]()
         
         //------------------------ここから下にクイズを書く------------------------//
-        tmpArray.append(["Life is Tech!のロゴTシャツにない色は？", "赤", "オレンジ", "黄色", 2])
-        tmpArray.append(["問題文", "選択肢1", "選択肢2", "選択肢3", 1])
-        tmpArray.append(["問題文", "選択肢1", "選択肢2", "選択肢3", 1])
-        //------------------------ここから上にクイズを書く------------------------//
-
+        tmpArray.append(["スタバのティーラテのメニューに無いのはどれ？", "アップル", "ハイビスカス", "ミントシトラス", 1])
+        tmpArray.append(["エスプレッソを使っていないドリンクはどれ？", "カフェラテ", "カフェモカ", "カフェミスト", 3])
+        tmpArray.append(["ホイップが乗っているフラペチーノはどれ？", "コーヒーフラペチーノ", "モカフラペチーノ", "ホワイトモカフラペチーノ", 3])
+                //------------------------ここから上にクイズを書く------------------------//
+        
+        // 問題をシャッフルしてquizArrayに格納する
+        while (tmpArray.count > 0) {
+            let index = Int(arc4random_uniform(UInt32(tmpArray.count)))
+            quizArray.append(tmpArray[index])
+            tmpArray.remove(at: index)
+        }
         choiceQuiz()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     func choiceQuiz() {
@@ -72,6 +83,9 @@ class QuizViewController: UIViewController {
             resultView.correctAnswer = self.correctAnswer
         }
     }
+    
+    
+    
 }
 
 
